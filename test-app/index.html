@@ -12,14 +12,14 @@
     a meta viewport shim to accomlish scaling
   -->
   <meta name="viewport" content="width=1280, initial-scale=1">
-
+  <link rel="stylesheet" type="text/css" href="test.css">
   <title>Firefox OS Viewport Test</title>
 </head>
 <body>
   <!-- Let's assume the entire app HTML is held within the #viewport element -->
   <div id="viewport"></div>
 
-  <script src="firefox-os-tv-viewport-fix.js"></script>
+  <script src="../meta-viewport-shim.js"></script>
   <script>
     fixViewportForFirefoxOsTv(document.querySelector('#viewport'), true);
   </script>

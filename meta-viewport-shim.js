@@ -1,4 +1,4 @@
-function fixViewportForFirefoxOsTv(container, showReport) {
+function metaViewportShim(container, showReport) {
   // The "container" argument is the element that houses the entire app
   // And sets its width/height to a standard TV size
   // The "showReport" argument is a boolean as to whether or not to show scaling information
