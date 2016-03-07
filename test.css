@@ -1,0 +1,19 @@
+html {
+  background:blue;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: pink;
+}
+
+#viewport {
+  box-sizing: border-box;
+  width: 1280px;
+  height: 720px;
+  background: lightgreen;
+  color: #fff;
+  padding:0;
+  margin:0;
+}
