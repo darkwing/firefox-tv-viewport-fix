@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-
+  <title>Meta Viewport Shim Test</title>
   <!--
     Ideally this viewport tag would scale an app made for 1280x720 to
     full screen, even on an Ultra HD TV (ex: 1920x1080)
@@ -19,9 +19,9 @@
   <!-- Let's assume the entire app HTML is held within the #viewport element -->
   <div id="viewport"></div>
 
-  <script src="../meta-viewport-shim.js"></script>
+  <script src="meta-viewport-shim.js"></script>
   <script>
-    fixViewportForFirefoxOsTv(document.querySelector('#viewport'), true);
+    metaViewportShim(document.querySelector('#viewport'), true);
   </script>
 </body>
 </html>
