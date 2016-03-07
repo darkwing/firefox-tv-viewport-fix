@@ -19,8 +19,10 @@
   <!-- Let's assume the entire app HTML is held within the #viewport element -->
   <div id="viewport"></div>
 
+  <!-- Include the shim to scale app size -->
   <script src="meta-viewport-shim.js"></script>
   <script>
+    // Scale the app if necessary, output debug information for †esting
     metaViewportShim(document.querySelector('#viewport'), true);
   </script>
 </body>
