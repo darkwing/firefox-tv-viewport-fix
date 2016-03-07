@@ -6,7 +6,7 @@ A viewport fix for devices (including Firefox OS TVs) that don't support [meta v
 
 Example:  You've coded your app to standard 1280x720 resolution for an HD television but you open the app on an Ultra HD TV and the app only appears to display on half of the television -- yikes!  Ideally the following `meta` tag would direct the app to scale larger to device size:
 
-```
+```html
 <meta name="viewport" content="width=1280, initial-scale=1">
 ```
 
@@ -14,21 +14,21 @@ If the app renderer does not support meta viewport, however, your app will not s
 
 ## Usage
 
-Add `meta-viewport-shim.js`to your page via a script tag:
+Add `meta-viewport-shim.js`to your page via a `script` tag:
 
-```
+```html
 <script src="meta-viewport-shim.js"></script>
 ```
 
 Call the global `metaViewportShim` function, providing it the DOM node that contains the app:
 
-```
+```js
 metaViewportShim(document.querySelector('#app-wrapper'));
 ```
 
 To see a report of dimensions and applied scale, send `true` as a second argument:
 
-```
+```js
 metaViewportShim(document.querySelector('#app-wrapper'), true);
 ```
 

@@ -1,0 +1,22 @@
+{
+  "name": "meta-viewport-shim",
+  "version": "0.1",
+  "description": "A viewport fix for Firefox OS TVs and other devices that don't support meta viewport",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkwing/meta-viewport-shim"
+  },
+  "keywords": [
+    "viewport",
+    "mobile",
+    "shim"
+  ],
+  "author": "David Walsh",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/darkwing/meta-viewport-shim/issues"
+  },
+  "homepage": "https://github.com/darkwing/meta-viewport-shim#readme"
+}
