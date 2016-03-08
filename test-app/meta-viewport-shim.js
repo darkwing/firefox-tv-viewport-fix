@@ -15,7 +15,6 @@ window.metaViewportShim = {
 
     // Only allow whitelisted UA's
     if(this.userAgents.indexOf(navigator.userAgent) === -1) {
-      console.log('agent doesnt match: ', this.userAgents, navigator.userAgent);
       return;
     }
 
