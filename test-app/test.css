@@ -19,3 +19,7 @@ body {
 
   overflow: hidden;
 }
+
+img {
+  display: block;
+}

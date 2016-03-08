@@ -12,6 +12,7 @@
     a meta viewport shim to accomlish scaling
   -->
   <meta name="viewport" content="width=1280, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width"> -->
   <link rel="stylesheet" type="text/css" href="test.css">
   <title>Firefox OS Viewport Test</title>
 </head>
@@ -25,7 +26,7 @@
   <script src="meta-viewport-shim.js"></script>
   <script>
     // Scale the app if necessary, output debug information for †esting
-    metaViewportShim(document.querySelector('#viewport'), true);
+    metaViewportShim(true);
   </script>
 </body>
 </html>
