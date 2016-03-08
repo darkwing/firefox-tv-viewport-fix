@@ -23,13 +23,28 @@ Add `meta-viewport-shim.js`to your page via a `script` tag:
 Call the global `metaViewportShim` function, providing it the DOM node that contains the app:
 
 ```js
-metaViewportShim(document.querySelector('#app-wrapper'));
+metaViewportShim.shim(document.querySelector('#app-wrapper'));
 ```
 
 To see a report of dimensions and applied scale, send `true` as a second argument:
 
 ```js
-metaViewportShim(document.querySelector('#app-wrapper'), true);
+metaViewportShim.shim(document.querySelector('#app-wrapper'), true);
+```
+
+This utility uses a whitelist of known user agents that don't support meta viewport:
+
+```js
+userAgents: [
+  'Mozilla/5.0 (FreeBSD; Viera; rv:34.0) Gecko/20100101 Firefox/34.0',
+  'Mozilla/5.0 (FreeBSD; Viera; rv:44.0) Gecko/20100101 Firefox/44.0'
+],
+```
+
+If you'd like to apply meta viewport in *all* cases, simply do the following before calling `shim()`:
+
+```js
+metaViewportShim.push(navigator.userAgent);
 ```
 
 ## How does it work?

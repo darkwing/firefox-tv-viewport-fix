@@ -1,6 +1,6 @@
 {
   "name": "meta-viewport-shim",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A viewport fix for Firefox OS TVs and other devices that don't support meta viewport",
   "dependencies": {},
   "devDependencies": {},
