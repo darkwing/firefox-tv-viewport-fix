@@ -12,27 +12,49 @@ Example:  You've coded your app to standard 1280x720 resolution for an HD televi
 
 If the app renderer does not support meta viewport, however, your app will not scale.
 
-## Usage
+## The Optimal Solution
 
-Add `meta-viewport-shim.js`to your page via a `script` tag:
+The optimal solution to this problem is to not use this shim but instead use [@media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) to detect a given screen size and make adjustments to it.  For example, the following CSS media query could target Firefox OS Ultra HD TVs:
+
+```css
+@media (max-width:1920px) and (max-height:1080px) {
+  #app-wrapper {
+    width: 1920px;
+    height: 1080px;
+  }
+
+  /*
+    Adjust any other important dimensions for other elements here
+  */
+}
+```
+
+This solution will require more work but a more reliable, visually appealing display.
+
+## The Shim
+
+`meta-viewport-shim` aims to simulate meta viewport support by gathering screen dimensions, analyzing the app's wrapping node dimensions, and using [CSS Transforms](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms) to scale the app to full screen dimensions.
+
+### Implementing the Shim
+Add `meta-viewport-shim.js` to your page via a `script` tag:
 
 ```html
 <script src="meta-viewport-shim.js"></script>
 ```
 
-Call the global `metaViewportShim` function, providing it the DOM node that contains the app:
+Call the global `metaViewportShim` function, providing it the DOM node that "wraps" the app:
 
 ```js
 metaViewportShim.shim(document.querySelector('#app-wrapper'));
 ```
 
-To see a report of dimensions and applied scale, send `true` as a second argument:
+To see a report of dimensions and applied scale (for use in debugging only), send `true` as a second argument:
 
 ```js
 metaViewportShim.shim(document.querySelector('#app-wrapper'), true);
 ```
 
-This utility uses a whitelist of known user agents that don't support meta viewport:
+This utility uses a whitelist of known user agents that don't support meta viewport so as not to disturb an app when it shouldn't:
 
 ```js
 userAgents: [
@@ -45,14 +67,15 @@ If you'd like to apply meta viewport in *all* cases, simply do the following bef
 
 ```js
 metaViewportShim.push(navigator.userAgent);
+metaViewportShim.shim(document.querySelector('#app-wrapper'));
 ```
 
-## How does it work?
+## Notes
 
-This utility gathers screen dimensions, analyzes the node's dimensions, and uses [CSS Transforms](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms) to scale the app to full screen size.
+* Some apps have found success with using the CSS `zoom` property.  The `zoom` property is not supported by Firefox or Firefox OS.
 
-*Some apps have found success with using the CSS `zoom` property.  The `zoom` property is not supported by Firefox or Firefox OS.*
+* CSS transforms may slightly impact performance of app or game
 
 ## What's in this repo?
 
-Along with this repo is a test page and app manifest for testing on various screens and devices.
+Inside this repo is the `meta-viewport-shim.js` file you'll need to make this work, a test page, and an app manifest for testing on various screens and devices.
